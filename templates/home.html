@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="static/styles.css" />
+  </head>
+  <body>
+    <div class="login">
+      <h1>Restaurant Rating Prediction</h1>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <label for="online_order">Online Order:</label><br />
+        <select name="online_order" required="required">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option></select
+        ><br /><br />
+
+        <label for="book_table">Book Table:</label><br />
+        <select name="book_table" required="required">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option></select
+        ><br /><br />
+
+        <label for="rest_type">Restaurant Type:</label><br />
+        <select name="rest_type" required="required">
+          <option value="Bakery">Bakery</option>
+          <option value="Bar">Bar</option>
+          <option value="Beverage Shop">Beverage Shop</option>
+          <option value="Bhojanalya">Bhojanalya</option>
+          <option value="Cafe">Cafe</option>
+          <option value="Casual Dining">Casual Dining</option>
+          <option value="Club">Club</option>
+          <option value="Confectionery">Confectionery</option>
+          <option value="Delivery">Delivery</option>
+          <option value="Dessert Parlor">Dessert Parlor</option>
+          <option value="Dhaba">Dhaba</option>
+          <option value="Fine Dining">Fine Dining</option>
+          <option value="Food Court">Food Court</option>
+          <option value="Food Truck">Food Truck</option>
+          <option value="Kiosk">Kiosk</option>
+          <option value="Lounge">Lounge</option>
+          <option value="Mess">Mess</option>
+          <option value="Microbrewery">Microbrewery</option>
+          <option value="Pub">Pub</option>
+          <option value="Quick Bites">Quick Bites</option>
+          <option value="Sweet Shop">Sweet Shop</option>
+          <option value="Takeaway">Takeaway</option></select
+        ><br /><br />
+
+        <label for="cuisine">Type of Cuisine:</label><br />
+        <select name="cuisine" required="required">
+          <option value="North Indian">North Indian</option>
+          <option value="Chinese">Chinese</option>
+          <option value="Continental">Continental</option>
+          <option value="Fast Food">Fast Food</option>
+          <option value="South Indian">South Indian</option>
+          <option value="Cafe">Cafe</option>
+          <option value="Biryani">Biryani</option>
+          <option value="Desserts">Desserts</option>
+          <option value="Beverages">Beverages</option>
+          <option value="Italian">Italian</option>
+          <option value="Others">Others</option>
+          <option value="Street Food">Street Food</option>
+          <option value="Pizza">Pizza</option>
+          <option value="Burger">Burger</option>
+          <option value="Bakery">Bakery</option>
+          <option value="Seafood">Seafood</option>
+          <option value="Andhra">Andhra</option>
+          <option value="American">American</option>
+          <option value="Mughlai">Mughlai</option>
+          <option value="Ice Cream">Ice Cream</option>
+          <option value="Asian">Asian</option>
+          <option value="Finger Food">Finger Food</option>
+          <option value="Salad">Salad</option>
+          <option value="Momos">Momos</option>
+          <option value="Rolls">Rolls</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Thai">Thai</option>
+          <option value="Arabian">Arabian</option>
+          <option value="BBQ">BBQ</option>
+          <option value="European">European</option>
+          <option value="Kebab">Kebab</option>
+          <option value="Healthy Food">Healthy Food</option>
+          <option value="Juices">Juices</option>
+          <option value="Mithai">Mithai</option>
+          <option value="Sandwich">Sandwich</option>
+          <option value="Mediterranean">Mediterranean</option>
+          <option value="Steak">Steak</option>
+          <option value="Mangalorean">Mangalorean</option>
+          <option value="Mexican">Mexican</option>
+          <option value="Bengali">Bengali</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Tea">Tea</option>
+          <option value="Hyderabadi">Hyderabadi</option>
+          <option value="Tibetan">Tibetan</option>
+          <option value="Modern Indian">Modern Indian</option>
+          <option value="Vietnamese">Vietnamese</option>
+          <option value="Chettinad">Chettinad</option>
+          <option value="Korean">Korean</option>
+          <option value="Rajasthani">Rajasthani</option></select
+        ><br /><br />
+
+        <label for="type">Type:</label><br />
+        <select name="type" required="required">
+          <option value="Buffet">Buffet</option>
+          <option value="Cafes">Cafes</option>
+          <option value="Delivery">Delivery</option>
+          <option value="Desserts">Desserts</option>
+          <option value="Dine-out">Dine-out</option>
+          <option value="Drinks & nightlife">Drinks & nightlife</option>
+          <option value="Pubs and bars">Pubs and bars</option></select
+        ><br /><br />
+
+        <input
+          type="number"
+          name="cost"
+          placeholder="Approx Cost For 2 people"
+          required="required"
+        /><br />
+
+        <input
+          type="number"
+          name="votes"
+          placeholder="Number of Votes"
+          required="required"
+        /><br />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Predict
+        </button>
+      </form>
+
+      <h2>The Restaurant Rating prediction is {{result}}</h2>
+    </div>
+  </body>
+</html>
